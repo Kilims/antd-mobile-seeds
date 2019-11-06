@@ -1,5 +1,17 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+version details:
+
+create-react-app@3.2.0
+antd-mobile@2.3.1
+babel-plugin-import@1.12.1
+css-loader@3.2.0
+customize-cra@0.8.0
+less@3.10.3
+less-loader@5.0.0
+react-app-rewired@2.1.4
+style-loader@1.0.0
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -66,3 +78,82 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+## antd-mobile相关使用前的配置
+
+### 引入antd-mobile并且按需加载
+
+根据官网的guide一步步走，步骤包括：
+
+1. 入口页面(html或者模板)相关设置
+2. 引入 react-app-rewired 并修改 package.json 里的启动配置
+3. 创建一个 config-overrides.js
+4. 使用 babel-plugin-import
+5. 修改 config-overrides.js并且更改引入方式
+
+即可，一步步跟官网，无错  
+https://mobile.ant.design/docs/react/use-with-create-react-app-cn
+
+### 实现主题less修改
+
+根据官网不能实现，经查资料实现步骤如下：
+
+1.   `npm install --save-dev babel-plugin-import less less-loader style-loader css-loader`
+2. 配置config-overrides.js，将 style值改为true，如下：
+
+    ```javascript
+    const { override, fixBabelImports } = require('customize-cra');
+
+    module.exports = override(
+        fixBabelImports('import', {
+            libraryName: 'antd-mobile',
+            style: true
+        }),
+    )
+    ```
+
+3. 继续配置config-overrides.js，查阅customize-cra文档，添加addLessLoader设置
+    ```javascript
+    const { override, fixBabelImports, addLessLoader } = require('customize-cra');
+
+    module.exports = override(
+        fixBabelImports('import', {
+            libraryName: 'antd-mobile',
+            style: true
+        }),
+        addLessLoader({
+            modifyVars: {
+                "@brand-primary": "#108ee9"  //参照node_modules\antd-mobile\lib\style\themes\default.less 可以查看到所有能修改的变量名字
+            }
+        })
+    )
+    ```
+
+
+### webpack alias设置
+
+配置config-overrides.js
+
+```javascript
+    const { override, fixBabelImports, addLessLoader, addWebpackAlias } = require('customize-cra');
+    const path = require('path')
+
+    module.exports = override(
+        fixBabelImports('import', {
+            libraryName: 'antd-mobile',
+            style: true
+        }),
+        addLessLoader({
+            modifyVars: {
+                "@brand-primary": "#108ee9"
+            }
+        }),
+        addWebpackAlias({
+            ['@component']: path.resolve(__dirname, "src/test/Component")
+        })
+    )
+```
+
+
+
