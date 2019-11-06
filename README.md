@@ -1,16 +1,18 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-version details:
+<p align="center">
+  <a><img src="https://img.shields.io/badge/create--react--app-3.2.0-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/babel--plugin--import-1.12.1-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/antd--mobile-2.3.1-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/css--loader-3.2.0-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/customize--cra-0.8.0-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/less-3.10.3-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/less--loader-5.0.0-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/style--loader-1.0.0-brightgreen"></a>
+  <a><img src="https://img.shields.io/badge/react--app--rewired-2.1.4-brightgreen"></a>
 
-create-react-app@3.2.0
-antd-mobile@2.3.1
-babel-plugin-import@1.12.1
-css-loader@3.2.0
-customize-cra@0.8.0
-less@3.10.3
-less-loader@5.0.0
-react-app-rewired@2.1.4
-style-loader@1.0.0
+</p>
+
 
 ## Available Scripts
 
