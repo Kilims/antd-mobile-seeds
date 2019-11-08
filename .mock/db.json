@@ -1,3 +1,13 @@
 {
-    "Helloworld": "Hello world"
+  "getRemainTicketApi": {
+    "remainingTickets": "425"
+  },
+  "retrieveVerificationCode": {
+    "verificationCode": "sent"
+  },
+  "submitForm": {
+    "phoneNumber": "18819466848",
+    "verificationCode": "123122",
+    "loginPwd": "12312312Sad"
+  }
 }

@@ -2,7 +2,10 @@
     "compilerOptions": {
         "baseUrl": "./",
         "paths": {
-            "@component/*": ["src/test/Component"]
+            "@context/*": ["src/context"],
+            "@components/*": ["src/components"],
+            "@api/*": ["src/services"],
+            "@utils/*": ["src/utils"]
         }
     },
     "exclude": ["node_modules", "dist"],
