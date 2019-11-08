@@ -25,11 +25,11 @@ const api = {
         // })
     },
     submitFormData(phoneNumber, verificationCode, loginPwd){
-        return axios.post(`${apiConfig.HOST.LOCAL_HOST}/${apiConfig.URI.LOCAL.SUBMIT_FORM}`, {
+        return axios.post(`${apiConfig.HOST.LOCAL_HOST}/${apiConfig.URI.LOCAL.SUBMIT_FORM}`, JSON.stringify({
             phoneNumber: phoneNumber,
             verificationCode: verificationCode,
             loginPwd: loginPwd
-        })
+        }))
     }
 }
 
